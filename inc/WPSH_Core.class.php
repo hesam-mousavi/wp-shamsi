@@ -705,9 +705,7 @@ class WPSH_Core
       '9'
     );
 
-        $data = str_replace($fa, $en, $data);
-
-        return $data;
+        return $data ? str_replace($fa, $en, $data) : null;
     }
 
     /**

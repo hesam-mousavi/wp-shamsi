@@ -84,7 +84,7 @@ class WPSH_Jalali extends WPSH_DateAbstract
      */
     public function __construct($time = null, $tz = null)
     {
-        parent::__construct(null, self::safeCreateDateTimeZone($tz));
+        parent::__construct('now', self::safeCreateDateTimeZone($tz));
         $this->decode($this->faToEn($time));
     }
 
@@ -94,7 +94,7 @@ class WPSH_Jalali extends WPSH_DateAbstract
      * @param int $day
      * @return void
      */
-    public function setDate($year, $month, $day = 1)
+    public function setDate($year, $month, $day = 1): DateTime
     {
         $this->jYear = (int) $year;
         $this->jMonth = (int) $month;
@@ -220,7 +220,7 @@ class WPSH_Jalali extends WPSH_DateAbstract
      * @param string $format
      * @return mixed
      */
-    public function format($format)
+    public function format($format): string
     {
         $symbols = array('Y', 'm', 'd', 'D', 'H', 'i', 's', 'l', 'j', 'N', 'w', 'z', 'W', 'F', 'M', 'n', 't', 'L', 'o', 'y', 'a', 'A', 'B', 'g', 'G', 'h', 's', 'u', 'e', 'i', 'I', 'O', 'P', 'T', 'U', 'c', 'r');
         $intactSymbols = array('H', 'i', 's', 'N', 'w', 'B', 'g', 'G', 'h', 's', 'u', 'e', 'i', 'I', 'O', 'P', 'T', 'U', 'c', 'r');
